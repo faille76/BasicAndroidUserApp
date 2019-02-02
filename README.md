@@ -8,9 +8,9 @@ This app uses the Gradle build system. To build this project, use the "gradlew b
 * **SharedPreferences** - Keep a session token permanent on disk to load the user when launching app.
 
 ## Screenshots
-![Sign in](screenshots/signin.png?raw=true =200x355 "Sign in")
-![Sign up](screenshots/signup.png?raw=true =200x355 "Sign up")
-![Profile](screenshots/profile.png?raw=true =355x200 "Profile")
+<img src="screenshots/signin.png?raw=true" data-canonical-src="screenshots/signin.png?raw=true" width="200" height="355" alt="Sign in" title="Sign in" />
+<img src="screenshots/signup.png?raw=true" data-canonical-src="screenshots/signup.png?raw=true" width="200" height="355" alt="Sign up" title="Sign up" />
+<img src="screenshots/profile.png?raw=true" data-canonical-src="screenshots/profile.png?raw=true" width="355" height="200" alt="Profile" title="Sign up" />
 
 ## Authors
 * **Frederic Oddou** - *Initial work* - [Github](https://github.com/faille76)
