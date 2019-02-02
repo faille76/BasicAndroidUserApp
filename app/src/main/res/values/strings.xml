@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MyUserApp</string>
+    <string name="user_or_email">User or Email</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="password_repeat">Password (Repeat)</string>
+    <string name="log_in_button">Log in</string>
+    <string name="sign_up_button">Sign up now</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="age_hint">Age</string>
+    <string name="sign_up_text_view">Hello, here you can create your account if you do not have one.</string>
+    <string name="login_text_view">Hi, please log in to the app to see all the features. If you do not have account yet, you are able to create one in the app.</string>
+
+    <string name="profile_name">My name is:</string>
+    <string name="profile_email">My email linked to this account is:</string>
+    <string name="profile_age">My age is:</string>
+    <string name="log_out">Log out</string>
+</resources>
