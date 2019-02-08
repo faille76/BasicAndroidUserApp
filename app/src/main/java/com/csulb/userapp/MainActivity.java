@@ -14,6 +14,7 @@ import com.csulb.userapp.Repository.UserRepository;
 import com.csulb.userapp.Repository.SessionHelper;
 
 public class MainActivity extends AppCompatActivity {
+    private static int RETRY_MAX = 3;
     private int retry = 0;
 
     @Override
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Email was not found.", Toast.LENGTH_LONG).show();
                     retry++;
                 }
-                if (retry >= 3) {
+                if (retry >= RETRY_MAX) {
                     moveTaskToBack(true);
                     android.os.Process.killProcess(android.os.Process.myPid());
                     System.exit(1);
