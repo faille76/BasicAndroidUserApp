@@ -14,6 +14,8 @@ import com.csulb.userapp.Repository.UserRepository;
 import com.csulb.userapp.Repository.SessionHelper;
 
 public class MainActivity extends AppCompatActivity {
+    private int retry = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 if (user == null) {
                     user = userRepository.getUserByUsername(userOrEmailEditText.getText().toString());
                 }
-                if (user == null) {
-                    Toast.makeText(getApplicationContext(), "Email was not found.", Toast.LENGTH_LONG).show();
-                } else {
+                if (user != null) {
                     if (UserHelper.getHashedPassword(passwordEditText.getText().toString()).equals(user.password)) {
                         user.sessionToken = UserHelper.getRandomToken();
                         userRepository.updateUser(user);
@@ -49,7 +49,16 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                     } else {
                         Toast.makeText(getApplicationContext(), "Password is not good.", Toast.LENGTH_LONG).show();
+                        retry++;
                     }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Email was not found.", Toast.LENGTH_LONG).show();
+                    retry++;
+                }
+                if (retry >= 3) {
+                    moveTaskToBack(true);
+                    android.os.Process.killProcess(android.os.Process.myPid());
+                    System.exit(1);
                 }
             }
         });
