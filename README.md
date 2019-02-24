@@ -4,7 +4,7 @@
 This app uses the Gradle build system. To build this project, use the "gradlew build" command or use "Import Project" in Android Studio.
 
 ## Tools
-* **SQLite** - User data storage
+* **Opencsv** - User data storage
 * **SharedPreferences** - Keep a session token permanent on disk to load the user when launching app.
 
 ## Screenshots

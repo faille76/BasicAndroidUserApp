@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.csulb.userapp.Entity.User;
 import com.csulb.userapp.Repository.SessionHelper;
 import com.csulb.userapp.Repository.UserHelper;
-import com.csulb.userapp.Repository.UserRepository;
+import com.csulb.userapp.Repository.UserFileRepository;
 
 import java.util.ArrayList;
 
@@ -28,14 +28,14 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText passwordRepeatEditText;
     private EditText ageEditText;
 
-    private UserRepository userRepository;
+    private UserFileRepository userRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        userRepository = UserRepository.getInstance(getApplicationContext());
+        userRepository = UserFileRepository.getInstance(getApplicationContext());
 
         usernameEditText = findViewById(R.id.sign_up_username_edit_text);
         firstNameEditText = findViewById(R.id.sign_up_first_name_edit_text);
@@ -95,7 +95,6 @@ public class SignUpActivity extends AppCompatActivity {
                     user.lastName = lastNameEditText.getText().toString();
                     user.age = Integer.valueOf(ageEditText.getText().toString());
                     user.password = UserHelper.getHashedPassword(passwordEditText.getText().toString());
-                    user.sessionToken = UserHelper.getRandomToken();
 
                     if (userRepository.addUser(user) == -1) {
                         Toast.makeText(getApplicationContext(), "Error occurred, please ask the developer.", Toast.LENGTH_LONG).show();

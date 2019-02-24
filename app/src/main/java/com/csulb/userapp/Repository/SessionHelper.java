@@ -75,13 +75,13 @@ public class SessionHelper {
      */
     public void setUser(User user) {
         if (user == null) {
-            String session_token = this.sharedPreferences.getString("session_token","");
-            if (session_token != null && !session_token.equals("")) {
-                UserRepository userRepository = UserRepository.getInstance(this.context);
-                this.user = userRepository.getUserBySession(session_token);
+            String session_email_token = this.sharedPreferences.getString("session_email_token","");
+            if (session_email_token != null && !session_email_token.equals("")) {
+                UserFileRepository userRepository = UserFileRepository.getInstance(this.context);
+                this.user = userRepository.getUserByEmail(session_email_token);
             }
         } else {
-            this.sharedPreferences.edit().putString("session_token", user.sessionToken).apply();
+            this.sharedPreferences.edit().putString("session_email_token", user.email).apply();
             this.user = user;
         }
     }
@@ -90,7 +90,7 @@ public class SessionHelper {
      * Destroy session with token.
      */
     public void destroySession() {
-        this.sharedPreferences.edit().remove("session_token").apply();
+        this.sharedPreferences.edit().remove("session_email_token").apply();
         this.user = null;
     }
 

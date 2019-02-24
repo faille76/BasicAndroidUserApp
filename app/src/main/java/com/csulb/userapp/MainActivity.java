@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.csulb.userapp.Entity.User;
 import com.csulb.userapp.Repository.UserHelper;
-import com.csulb.userapp.Repository.UserRepository;
+import com.csulb.userapp.Repository.UserFileRepository;
 import com.csulb.userapp.Repository.SessionHelper;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,15 +36,13 @@ public class MainActivity extends AppCompatActivity {
                 EditText passwordEditText = findViewById(R.id.login_password_edit_text);
 
 
-                UserRepository userRepository = UserRepository.getInstance(getApplicationContext());
+                UserFileRepository userRepository = UserFileRepository.getInstance(getApplicationContext());
                 User user = userRepository.getUserByEmail(userOrEmailEditText.getText().toString());
                 if (user == null) {
                     user = userRepository.getUserByUsername(userOrEmailEditText.getText().toString());
                 }
                 if (user != null) {
                     if (UserHelper.getHashedPassword(passwordEditText.getText().toString()).equals(user.password)) {
-                        user.sessionToken = UserHelper.getRandomToken();
-                        userRepository.updateUser(user);
                         SessionHelper.getInstance(getApplicationContext(), user);
                         Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                         startActivity(intent);
