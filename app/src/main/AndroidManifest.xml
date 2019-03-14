@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.csulb.userapp.ProfileActivity"></activity>
-        <activity android:name="com.csulb.userapp.SignUpActivity" />
-        <activity android:name="com.csulb.userapp.MainActivity">
+        <activity android:name=".RouteActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

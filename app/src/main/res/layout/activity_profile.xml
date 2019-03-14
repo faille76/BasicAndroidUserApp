@@ -75,6 +75,11 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/profile_route_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/route_list" />
+        <Button
             android:id="@+id/profile_logout_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
